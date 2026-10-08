@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mombasa Cement Products</title>
+<meta name="description" content="Mombasa Cement Ltd — Strength in Diversity. Explore the full Nyumba range: KP-Silver, KP-Gold, KP-Diamond, KP-Super Gold, KP-Platinum, KP-Sapphire, Quick Lime and Hydrated Lime.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2;
+  --surface:#ffffff;
+  --ink:#171a1e;
+  --ink-2:#4b5560;
+  --line:#e4e1da;
+  --accent:#e0a51b;
+  --accent-ink:#8a6207;
+  --hero-1:#12161b;
+  --hero-2:#232e2a;
+  --chip-bg:#ffffff;
+  --shadow:0 10px 30px rgba(20,24,30,.08);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101318;
+    --surface:#191e25;
+    --ink:#eef0f3;
+    --ink-2:#a6afbb;
+    --line:#2a313b;
+    --chip-bg:#191e25;
+    --shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101318;
+  --surface:#191e25;
+  --ink:#eef0f3;
+  --ink-2:#a6afbb;
+  --line:#2a313b;
+  --chip-bg:#191e25;
+  --shadow:0 10px 30px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.brandname{font-family:'Archivo',sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--accent),#b97e08);
+  display:grid;place-items:center;color:#171208;font-family:'Archivo';font-weight:900;font-size:15px;
+}
+.brandname{font-weight:800;font-size:15px;letter-spacing:.06em}
+.brandname small{display:block;font-size:10px;letter-spacing:.3em;color:var(--ink-2);font-weight:600}
+.nav-links{display:flex;gap:26px;font-size:14px;font-weight:500;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;
+  font-size:13px;font-weight:600;
+}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* ---------- HERO ---------- */
+header.hero{
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(224,165,27,.28), transparent 60%),
+    radial-gradient(700px 420px at 0% 110%, rgba(46,109,230,.18), transparent 60%),
+    linear-gradient(160deg,var(--hero-1),var(--hero-2));
+  color:#f2f0ea;
+  overflow:hidden;
+  position:relative;
+}
+.hero-inner{padding:84px 16px 72px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:#f0c75e;margin-bottom:20px;
+}
+.kicker::before{content:"";width:28px;height:2px;background:#f0c75e;display:inline-block}
+.hero h1{
+  font-size:clamp(2.6rem,6vw,4.4rem);
+  font-weight:900;line-height:1.02;letter-spacing:-.015em;
+  text-transform:uppercase;
+}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin:22px 0 30px;max-width:46ch;color:#c9cdc9;font-size:1.05rem}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:999px;font-weight:600;font-size:14.5px;
+  transition:transform .15s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--accent);color:#1b1403}
+.btn-ghost{border:1px solid rgba(255,255,255,.3);color:#f2f0ea}
+.hero-stats{display:flex;gap:36px;margin-top:46px;flex-wrap:wrap}
+.stat b{display:block;font-family:'Archivo';font-size:1.7rem;font-weight:800;color:#fff}
+.stat span{font-size:12.5px;color:#9aa49d}
+.hero-visual{position:relative;min-height:380px}
+.hero-visual .bagcard{
+  position:absolute;border-radius:20px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(6px);
+  padding:18px;display:grid;place-items:end center;
+  box-shadow:0 30px 60px rgba(0,0,0,.45);
+}
+.hero-visual .bagcard img{height:100%;object-fit:contain;filter:drop-shadow(0 18px 30px rgba(0,0,0,.5))}
+.bag-a{width:46%;height:78%;left:6%;top:12%;transform:rotate(-4deg)}
+.bag-b{width:46%;height:88%;right:4%;top:2%;transform:rotate(3deg);z-index:2}
+@media(max-width:880px){
+  .hero-inner{grid-template-columns:1fr;padding-top:60px}
+  .hero-visual{min-height:300px}
+}
+
+/* ---------- SECTIONS ---------- */
+section{padding:84px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head .kicker{color:var(--accent-ink)}
+:root[data-theme="dark"] .sec-head .kicker{color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .sec-head .kicker{color:var(--accent)}}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.01em;line-height:1.1}
+.sec-head p{margin-top:14px;color:var(--ink-2)}
+
+/* ---------- FILTERS ---------- */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.chip{
+  border:1px solid var(--line);background:var(--chip-bg);color:var(--ink-2);
+  padding:9px 20px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;
+  font-family:'Inter';transition:all .15s;
+}
+.chip:hover{border-color:var(--accent)}
+.chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* ---------- PRODUCT GRID ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(20,24,30,.14)}
+.card-img{
+  height:230px;display:grid;place-items:center;padding:22px;position:relative;
+}
+.card-img img{max-height:100%;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25))}
+.grade{
+  position:absolute;top:14px;left:14px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  padding:5px 11px;border-radius:999px;color:#fff;background:rgba(14,17,22,.78);
+  backdrop-filter:blur(4px);
+}
+.card-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:1.12rem;font-weight:800;letter-spacing:.015em}
+.card-body .spec{font-size:12.5px;color:var(--accent-ink);font-weight:600}
+:root[data-theme="dark"] .card-body .spec{color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .card-body .spec{color:var(--accent)}}
+.card-body p{font-size:13.5px;color:var(--ink-2);flex:1}
+.card-link{font-size:13px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.card-link::after{content:"→";transition:transform .15s}
+.card:hover .card-link::after{transform:translateX(4px)}
+
+/* ---------- WHY ---------- */
+#why{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.why-card{
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;
+}
+.why-card .ico{
+  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),#b97e08);font-size:21px;margin-bottom:16px;
+}
+.why-card h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+.why-card p{font-size:13.5px;color:var(--ink-2)}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.contact-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+.contact-card h3{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px;font-weight:700}
+.contact-card p{font-size:15px;line-height:1.75}
+.contact-card a{color:var(--accent-ink);font-weight:600}
+:root[data-theme="dark"] .contact-card a{color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-card a{color:var(--accent)}}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:var(--hero-1);color:#9aa49d;padding:44px 0;font-size:13.5px;
+}
+.foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .brandname{color:#f2f0ea}
+
+/* ---------- MODAL ---------- */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(10,12,16,.6);backdrop-filter:blur(4px);
+  display:none;place-items:center;z-index:100;padding:16px;
+}
+.modal-bg.open{display:grid}
+.modal{
+  background:var(--surface);border-radius:22px;max-width:860px;width:100%;
+  max-height:88vh;overflow:auto;position:relative;
+  box-shadow:0 40px 90px rgba(0,0,0,.5);
+}
+.modal-grid{display:grid;grid-template-columns:320px 1fr}
+.modal-img{
+  background:linear-gradient(160deg,var(--hero-1),var(--hero-2));
+  display:grid;place-items:center;padding:34px;min-height:320px;
+}
+.modal-img img{max-height:340px;object-fit:contain;filter:drop-shadow(0 20px 28px rgba(0,0,0,.5))}
+.modal-body{padding:34px 36px 38px}
+.modal-body h3{font-size:1.7rem;font-weight:800}
+.modal-body .spec{font-size:13.5px;color:var(--accent-ink);font-weight:600;margin:4px 0 20px;display:block}
+:root[data-theme="dark"] .modal-body .spec{color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .modal-body .spec{color:var(--accent)}}
+.modal-body h4{
+  font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-2);margin:20px 0 10px;font-weight:700;
+}
+.modal-body ul{padding-left:18px;font-size:14px;color:var(--ink-2);display:grid;gap:5px}
+.modal-close{
+  position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;
+  border:none;background:rgba(14,17,22,.65);color:#fff;font-size:17px;cursor:pointer;z-index:2;
+}
+@media(max-width:700px){.modal-grid{grid-template-columns:1fr}.modal-img{min-height:240px}.modal-img img{max-height:220px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">M</span>
+      <span class="brandname">MOMBASA CEMENT<small>NYUMBA RANGE</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#why">Why MCL</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="kicker">East Africa's Leading Cement Producer</span>
+      <h1>Strength in <em>Diversity</em></h1>
+      <p class="lead">From everyday household builds to dams, bridges and marine structures — the Nyumba range delivers consistent quality that meets and surpasses the harmonized EA standard KS EAS 18-1.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#products">Explore the range</a>
+        <a class="btn btn-ghost" href="#contact">Talk to us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>5.6M</b><span>tonnes annual capacity</span></div>
+        <div class="stat"><b>8</b><span>product lines</span></div>
+        <div class="stat"><b>KS EAS</b><span>18-1 certified quality</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="bagcard bag-a"><img src="images/KP-Silver2.png" alt="KP-Silver cement bag" loading="lazy"></div>
+      <div class="bagcard bag-b"><img src="images/KP-Diamond2.png" alt="KP-Diamond cement bag" loading="lazy"></div>
+    </div>
+  </div>
+</header>
+
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Our Products</span>
+      <h2>A cement for every build</h2>
+      <p>Tap any product to see its full features and recommended uses.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="cement">Cement</button>
+      <button class="chip" data-f="lime">Lime</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Why Mombasa Cement</span>
+      <h2>Built on technology, trusted countrywide</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="ico">🌍</div><h3>Greener cement</h3><p>Eco-friendly materials and processes give Green Nyumba cement a lower carbon footprint without sacrificing performance.</p></div>
+      <div class="why-card"><div class="ico">🏗️</div><h3>Every application</h3><p>From domestic floors and plastering to high-rise structures, ports, dams and windmill foundations.</p></div>
+      <div class="why-card"><div class="ico">✅</div><h3>Certified quality</h3><p>Every product meets or surpasses the conformity criteria of the harmonized EA standards KS EAS 18-1.</p></div>
+      <div class="why-card"><div class="ico">🚚</div><h3>Available countrywide</h3><p>Stocked by construction material retailers and wholesalers across the country.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Contact</span>
+      <h2>Talk to us about your next project</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Head Office</h3>
+        <p>H. K. Plaza, Mikindani,<br>New Mombasa – Nairobi Road.<br>P.O. Box 83594 – 80100,<br>Mombasa, Kenya.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Call us</h3>
+        <p><a href="tel:+254722204848">+254 722 204848</a><br>
+        <a href="tel:+254727605899">+254 727 605899</a><br>
+        <a href="tel:+254733615465">+254 733 615465</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p><a href="mailto:info@nyumba.com">info@nyumba.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="brandname">MOMBASA CEMENT LTD</span>
+    <span>Strength in Diversity · © 2026 Mombasa Cement Ltd</span>
+  </div>
+</footer>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-grid">
+      <div class="modal-img"><img id="mImg" alt=""></div>
+      <div class="modal-body">
+        <h3 id="mName"></h3>
+        <span class="spec" id="mSpec"></span>
+        <h4>Features</h4><ul id="mFeat"></ul>
+        <h4>Uses</h4><ul id="mUses"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = [
+  {
+    id:"silver", cat:"cement", name:"KP-Silver", grade:"32.5N",
+    spec:"Pozzolanic Cement CEM IV/B (P) 32.5N · KS EAS 18-1:2017",
+    img:"images/KP-Silver2.png",
+    blurb:"The dependable all-purpose cement for household construction, slabs, mortars and plastering.",
+    features:["Consistent quality meeting all conformity criteria of KS EAS 18-1","Portland Cement Clinker + natural Pozzolana + Gypsum + Limestone","Low heat of hydration, reduces leaching of calcium hydroxide","Achieves the desired final-day strength for concrete","Excellent bonding in concrete and masonry works","Easy to mix and apply, smooth plastering","Available countrywide in retailers & wholesale"],
+    uses:["General all-purpose cement","Domestic household construction","Suspended slabs, columns, beams, staircases","Mass concreting work","Masonry mortars and plastering","Domestic floors","Brick and block making"]
+  },
+  {
+    id:"gold", cat:"cement", name:"KP-Gold", grade:"32.5R",
+    spec:"Portland Pozzolana Cement (PPC) CEM II/B-P 32.5R",
+    img:"images/KP-Gold.png",
+    blurb:"Fast-setting premium cement with rapid strength development — ideal for water-retaining structures.",
+    features:["Surpasses all conformity criteria of KS EAS 18-1","Portland Cement Clinker + Natural Pozzolana + Gypsum + Limestone","Low heat of hydration, reduced leaching of calcium hydroxide","Fast setting with rapid strength when curing","Excellent bonding in concrete and masonry works","Easy to mix, smooth plastering","Available countrywide in retailers & wholesale"],
+    uses:["General construction","Hydraulic / water-retaining structures","Masonry mortars and plastering","Domestic floors and foundations","Brick & block making","Grout material","Slabs, beams and columns"]
+  },
+  {
+    id:"diamond", cat:"cement", name:"KP-Diamond", grade:"42.5N",
+    spec:"Portland Cement (PC) CEM I 42.5N",
+    img:"images/KP-Diamond2.png",
+    blurb:"High-strength Portland cement for reinforced concrete, high-rises, roads, bridges and dams.",
+    features:["Consistent quality meeting all conformity criteria of KS EAS 18-1","Portland Cement Clinker (PCC) + Gypsum","Less cement needed in high-strength mixes, smoother finish","Environmentally friendly — less CO₂ emitted in production","Best for specialist applications e.g. pre-stressing and post-tensioning","Available countrywide in retailers & wholesale"],
+    uses:["General civil construction","Reinforced cement concrete work","High-strength precast work","High-rise structures and silos","Road construction","Bridges, dams and reservoirs","Foundations, slabs, beams and columns"]
+  },
+  {
+    id:"supergold", cat:"cement", name:"KP-Super Gold", grade:"42.5N",
+    spec:"Portland Pozzolana Cement (PPC) CEM II A-P 42.5N",
+    img:"images/KP-Super-Gold.png",
+    blurb:"Premium 42.5N pozzolana cement for infrastructure, mass concreting and high-rise projects.",
+    features:["Surpasses all conformity criteria of KS EAS 18-1","Portland Cement Clinker (PCC) + Natural Pozzolana + Gypsum + Limestone","Low heat of hydration, reduced leaching of calcium hydroxide","Easy to mix and apply, smooth plastering","Available countrywide in retailers & wholesale"],
+    uses:["General civil construction & infrastructure projects","Reinforced cement concrete work","Mass concreting works","High-rise buildings","High-strength precast work","Road & bridge construction","Dams"]
+  },
+  {
+    id:"platinum", cat:"cement", name:"KP-Platinum", grade:"52.5N",
+    spec:"Portland Cement (PC) CEM I 52.5N",
+    img:"images/KP-Platinum_3_1.png",
+    blurb:"The strongest class — rapid hardening and high early strength for heavy-duty civil works.",
+    features:["Consistent quality meeting all conformity criteria of KS EAS 18-1","Portland Cement Clinker (PCC) + Gypsum","Stronger class of cement, withstands higher pressures and loads","Rapid hardening for projects needing high early strength","Available countrywide in retailers & wholesale"],
+    uses:["Civil projects requiring higher early strength","High-strength precast work","Road, bridge & dam construction","Heavy-duty industrial floors, columns, suspended slabs","Large precast concrete elements","Overpasses & viaducts","Windmill foundations","Post-tensioned & pre-stressed slabs and beams"]
+  },
+  {
+    id:"sapphire", cat:"cement", name:"KP-Sapphire", grade:"42.5N · Marine",
+    spec:"High-Strength Blast Furnace Cement — superior sulphate resistance",
+    img:"images/KP-Saphire.png",
+    blurb:"Engineered for seawater and high-sulphate environments: ports, piers, marine bridges and treatment works.",
+    features:["High-strength cement with 42.5N strength classification","Portland Cement Clinker (PCC) + Granulated Blast Furnace Slag + Gypsum","Superior sulphate resistance","Very low heat of hydration — lower peak concrete temperatures","Retains 28-day strength characteristics of CEM I (OPC) 42.5N","Reduced concrete bleeding & porosity, improved cohesion","Smoother concrete surface finish"],
+    uses:["Civil projects exposed to seawater","High-sulphate soils or groundwater","Large pours requiring low heat of hydration","Coastal & marine bridges","Dams and reservoirs","Piers, wharves, quays and ports","Deep raft foundations","Slip-form construction","Wastewater & sewage treatment works"]
+  },
+  {
+    id:"quicklime", cat:"lime", name:"Quick Lime", grade:"KS EAS 73",
+    spec:"High Quality Crushed Quick Lime — KS EAS 73:2000",
+    img:"images/Quick-Lime.png",
+    blurb:"Highly reactive calcium oxide for soil stabilisation, water treatment and industrial processing.",
+    features:["Highly reactive calcium oxide from carefully selected limestone","High reactivity with rapid moisture-reduction performance","Effective neutralising properties","Consistent quality for dependable processing","Suitable for producing hydrated lime","Improves workability and stability of suitable soils","Available for large-scale construction and processing"],
+    uses:["Drying wet and waterlogged soils","Soil modification and stabilisation","Road construction and civil engineering works","Building foundations and sub-bases","Manufacture of hydrated lime","Water and wastewater treatment","Industrial pH control and acid neutralisation","Mining, metallurgical and steel processing","Paper and sugar industry purification"]
+  },
+  {
+    id:"hydlime", cat:"lime", name:"Hydrated Lime", grade:"Class A",
+    spec:"Hydrated Class A High Quality Calcium White Lime — KS EAS 73:2000",
+    img:"images/Hydrated_Lime.png",
+    blurb:"Finely processed lime that improves mortar workability, water retention, bonding and finish.",
+    features:["Fine and consistent particle quality","Easy to mix and apply","Improves mortar and plaster workability","Enhances water retention in masonry mixtures","Supports stronger bonding to masonry surfaces","Produces smoother, more uniform finishes","Suitable for lime-based mixtures and slurries"],
+    uses:["Masonry mortar","Internal and external plastering","Rendering and stucco applications","Brick and block laying","Soil modification and stabilisation","Road and civil construction","Water and wastewater treatment","Whitewashing and limewash applications","Sanitation and environmental treatment"]
+  }
+];
+
+const TINTS = {
+  silver:"linear-gradient(160deg,#e8eaee,#c6ccd4)",
+  gold:"linear-gradient(160deg,#f7e8c3,#e3bd62)",
+  diamond:"linear-gradient(160deg,#dff0f7,#a8d4e8)",
+  supergold:"linear-gradient(160deg,#f9eccb,#ddb554)",
+  platinum:"linear-gradient(160deg,#eceef2,#b9c2cd)",
+  sapphire:"linear-gradient(160deg,#dbe6fb,#8fb0ef)",
+  quicklime:"linear-gradient(160deg,#e9f3e4,#bcd8ab)",
+  hydlime:"linear-gradient(160deg,#f1f1ec,#d4d4c6)"
+};
+
+const grid = document.getElementById('grid');
+function render(filter){
+  grid.innerHTML = "";
+  PRODUCTS.filter(p => filter==="all" || p.cat===filter).forEach(p=>{
+    const card = document.createElement('article');
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-img" style="background:${TINTS[p.id]}">
+        <span class="grade">${p.grade}</span>
+        <img src="${p.img}" alt="${p.name} pack" loading="lazy">
+      </div>
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <span class="spec">${p.spec}</span>
+        <p>${p.blurb}</p>
+        <span class="card-link">View details</span>
+      </div>`;
+    card.addEventListener('click', ()=>openModal(p));
+    grid.appendChild(card);
+  });
+}
+render("all");
+
+document.getElementById('filters').addEventListener('click', e=>{
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  render(btn.dataset.f);
+});
+
+const modalBg = document.getElementById('modalBg');
+function openModal(p){
+  document.getElementById('mImg').src = p.img;
+  document.getElementById('mImg').alt = p.name;
+  document.getElementById('mName').textContent = p.name;
+  document.getElementById('mSpec').textContent = p.spec;
+  document.getElementById('mFeat').innerHTML = p.features.map(f=>`<li>${f}</li>`).join('');
+  document.getElementById('mUses').innerHTML = p.uses.map(u=>`<li>${u}</li>`).join('');
+  modalBg.classList.add('open');
+  document.body.style.overflow = "hidden";
+}
+function closeModal(){
+  modalBg.classList.remove('open');
+  document.body.style.overflow = "";
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modalBg.addEventListener('click', e=>{ if(e.target===modalBg) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==="Escape") closeModal(); });
+</script>
+</body>
+</html>
