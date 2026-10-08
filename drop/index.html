@@ -91,6 +91,10 @@ nav{
 .stage-kicker::before,.stage-kicker::after{content:"";height:1px;width:clamp(30px,6vw,90px);background:linear-gradient(90deg,transparent,var(--line-2))}
 .stage-kicker::after{background:linear-gradient(90deg,var(--line-2),transparent)}
 .stage-kicker b{color:var(--volt);font-weight:600;text-shadow:0 0 12px rgba(255,196,0,.6)}
+@media(max-width:640px){
+  .stage-kicker{letter-spacing:.2em;line-height:2}
+  .stage-kicker::before,.stage-kicker::after{display:none}
+}
 .wordmark{
   font-family:var(--font-display);
   font-size:clamp(3rem,10.5vw,9.2rem);
