@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mombasa Drop</title>
+<meta name="description" content="The Mombasa Cement lineup as a midnight drop page — every bag a colourway, every grade a flex.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#060708;
+  --bg-1:#111417;
+  --bg-2:#1a1e23;
+  --ink:#f4f5f6;
+  --ink-dim:#8b939c;
+  --line:rgba(255,255,255,.08);
+  --pink:#f43fa0;
+  --amber:#fbbf24;
+  --orange:#fb7a1e;
+  --green:#52e252;
+  --teal:#2dd4bf;
+  --ice:#7dd3fc;
+  --violet:#a78bfa;
+  --blue:#4f6ef7;
+}
+:root[data-theme="light"]{ --bg-0:#060708; } /* this page is a night venue; it stays dark by design */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-0);
+  color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.anton{font-family:'Anton',sans-serif;letter-spacing:.01em}
+
+/* ================= STAGE / HERO ================= */
+.stage{
+  min-height:100svh;
+  position:relative;
+  display:flex;flex-direction:column;
+  background:
+    radial-gradient(900px 420px at 50% -8%, rgba(255,255,255,.14), transparent 60%),
+    radial-gradient(1200px 700px at 50% 108%, rgba(80,110,160,.12), transparent 55%),
+    linear-gradient(180deg,#15181c 0%, #0b0d0f 45%, #050607 100%);
+  overflow:hidden;
+}
+/* faint metallic sheen lines */
+.stage::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(115deg, rgba(255,255,255,.015) 0 2px, transparent 2px 9px);
+  mix-blend-mode:screen;
+}
+/* overhead spotlight cone */
+.stage::after{
+  content:"";position:absolute;left:50%;top:-20%;width:140vw;height:70%;
+  transform:translateX(-50%);
+  background:radial-gradient(closest-side, rgba(255,255,255,.09), transparent 70%);
+  pointer-events:none;
+}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px clamp(16px,4vw,48px);position:relative;z-index:5;
+}
+.wordmark{
+  font-family:'Anton';font-size:clamp(22px,2.6vw,32px);
+  letter-spacing:.12em;
+  background:linear-gradient(180deg,#fff,#9aa3ad);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 14px rgba(255,255,255,.25));
+}
+.topbar nav{display:flex;gap:26px;font-size:13px;font-weight:600;letter-spacing:.14em;color:var(--ink-dim);text-transform:uppercase}
+.topbar nav a:hover{color:#fff}
+@media(max-width:640px){.topbar nav{display:none}}
+
+.drop-tag{
+  text-align:center;margin-top:clamp(6px,2vh,22px);position:relative;z-index:5;
+  font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-dim);
+}
+.drop-tag b{color:var(--amber)}
+.hero-title{
+  text-align:center;position:relative;z-index:5;
+  font-family:'Anton';
+  font-size:clamp(2.4rem,7.5vw,6.2rem);
+  line-height:.98;text-transform:uppercase;
+  margin-top:10px;
+  text-shadow:0 0 36px rgba(255,255,255,.16);
+}
+.hero-title span{
+  background:linear-gradient(90deg,var(--pink),var(--orange),var(--green),var(--teal),var(--violet),var(--blue));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 22px rgba(244,63,160,.3));
+}
+
+/* ---------- THE PARADE ---------- */
+.parade-wrap{
+  position:relative;z-index:4;flex:1;display:flex;align-items:flex-end;
+  padding-bottom:0;margin-top:clamp(10px,3vh,30px);
+}
+.parade{
+  display:flex;gap:clamp(14px,2.2vw,30px);
+  padding:30px clamp(16px,5vw,64px) 0;
+  overflow-x:auto;scrollbar-width:none;
+  width:100%;
+  scroll-snap-type:x proximity;
+}
+.parade::-webkit-scrollbar{display:none}
+.track{
+  display:flex;gap:clamp(14px,2.2vw,30px);
+  animation:restless 7s ease-in-out infinite;
+}
+.parade:hover .track, .parade:active .track{animation-play-state:paused}
+@keyframes restless{
+  0%{transform:translateX(0)}
+  70%{transform:translateX(-46px)}
+  82%{transform:translateX(8px)}
+  90%{transform:translateX(-3px)}
+  100%{transform:translateX(0)}
+}
+@media (prefers-reduced-motion: reduce){.track{animation:none}}
+
+.can{
+  scroll-snap-align:center;
+  flex:0 0 auto;width:clamp(150px,16vw,210px);
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  cursor:pointer;position:relative;
+  transition:transform .25s cubic-bezier(.2,1.4,.4,1);
+}
+.can:hover{transform:translateY(-14px)}
+.can .bagbox{
+  position:relative;width:100%;aspect-ratio:3/4.4;
+  display:grid;place-items:end center;
+  transform:rotate(var(--tilt,-4deg));
+  transition:transform .25s cubic-bezier(.2,1.4,.4,1);
+}
+.can:hover .bagbox{transform:rotate(0deg) scale(1.04)}
+/* neon halo behind each bag */
+.can .bagbox::before{
+  content:"";position:absolute;inset:8% 4% 2%;
+  background:radial-gradient(60% 55% at 50% 42%, color-mix(in srgb, var(--c) 55%, transparent), transparent 75%);
+  filter:blur(14px);
+}
+.can img{
+  position:relative;max-height:96%;width:auto;max-width:92%;
+  filter:
+    drop-shadow(0 0 1px color-mix(in srgb, var(--c) 90%, white))
+    drop-shadow(0 0 18px color-mix(in srgb, var(--c) 55%, transparent))
+    drop-shadow(0 26px 24px rgba(0,0,0,.65));
+}
+/* specular overhead glint */
+.can .bagbox::after{
+  content:"";position:absolute;top:6%;left:18%;width:34%;height:20%;
+  background:radial-gradient(closest-side, rgba(255,255,255,.5), transparent 70%);
+  filter:blur(6px);mix-blend-mode:screen;pointer-events:none;
+}
+/* reflection on the wet counter */
+.can .mirror{
+  width:100%;height:74px;overflow:hidden;position:relative;margin-top:-4px;
+  transform:rotate(var(--tilt,-4deg));
+  pointer-events:none;
+}
+.can .mirror img{
+  position:absolute;left:50%;top:0;
+  transform:translateX(-50%) scaleY(-1);
+  max-width:92%;max-height:none;height:auto;
+  opacity:.28;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 62%);
+  mask-image:linear-gradient(180deg,#000 0%,transparent 62%);
+  filter:blur(1px) saturate(1.2);
+}
+.can .meta{text-align:center;margin-top:8px;position:relative;z-index:2}
+.can .meta .cw{
+  font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--c);text-shadow:0 0 12px color-mix(in srgb, var(--c) 70%, transparent);
+  font-weight:700;
+}
+.can .meta .nm{font-family:'Anton';font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.can .meta .gr{font-size:11px;color:var(--ink-dim);letter-spacing:.14em;margin-top:2px}
+.can .pill{
+  position:absolute;top:2px;right:-4px;z-index:3;
+  font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;
+  background:color-mix(in srgb, var(--c) 22%, #0a0c0e);
+  border:1px solid color-mix(in srgb, var(--c) 60%, transparent);
+  color:color-mix(in srgb, var(--c) 85%, white);
+  box-shadow:0 0 14px color-mix(in srgb, var(--c) 35%, transparent);
+}
+
+/* the wet bar counter */
+.counter{
+  position:relative;z-index:3;height:92px;margin-top:-78px;
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.015) 30%, transparent 85%);
+  border-top:1px solid rgba(255,255,255,.14);
+  pointer-events:none;
+}
+.counter::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(45% 100% at 22% 0%, rgba(244,63,160,.08), transparent 70%),
+    radial-gradient(45% 100% at 50% 0%, rgba(82,226,82,.07), transparent 70%),
+    radial-gradient(45% 100% at 78% 0%, rgba(79,110,247,.09), transparent 70%);
+}
+.scroll-hint{
+  position:relative;z-index:4;text-align:center;padding:4px 0 26px;
+  font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-dim);
+}
+
+/* ================= LINEUP DETAIL ================= */
+.sectionpad{padding:clamp(70px,10vw,130px) clamp(16px,5vw,64px)}
+.sec-kick{
+  font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:14px;
+}
+.sec-title{
+  font-family:'Anton';text-transform:uppercase;
+  font-size:clamp(2rem,5.5vw,4rem);line-height:1;
+  margin-bottom:clamp(30px,5vw,56px);
+}
+.lineup{display:grid;gap:18px}
+.row{
+  display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:center;
+  border:1px solid var(--line);border-radius:20px;
+  padding:20px 26px;
+  background:linear-gradient(120deg, color-mix(in srgb, var(--c) 7%, var(--bg-1)), var(--bg-1) 55%);
+  position:relative;overflow:hidden;
+  transition:border-color .2s, transform .2s;
+  cursor:pointer;
+}
+.row:hover{border-color:color-mix(in srgb, var(--c) 55%, transparent);transform:translateX(6px)}
+.row::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--c);box-shadow:0 0 18px var(--c);
+}
+.row .thumb{
+  height:96px;display:grid;place-items:center;
+}
+.row .thumb img{max-height:96px;filter:drop-shadow(0 0 12px color-mix(in srgb, var(--c) 50%, transparent))}
+.row .info h3{font-family:'Anton';font-size:1.45rem;letter-spacing:.05em;text-transform:uppercase}
+.row .info .cw{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--c);font-weight:700}
+.row .info p{color:var(--ink-dim);font-size:14px;margin-top:6px;max-width:62ch}
+.row .grade{
+  font-family:'Anton';font-size:1.6rem;color:var(--c);
+  text-shadow:0 0 16px color-mix(in srgb, var(--c) 60%, transparent);
+  white-space:nowrap;
+}
+.row .expand{
+  grid-column:1/-1;max-height:0;overflow:hidden;
+  transition:max-height .32s cubic-bezier(.3,1.25,.4,1);
+}
+.row.open .expand{max-height:460px}
+.expand-inner{
+  border-top:1px solid var(--line);padding-top:18px;margin-top:4px;
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;font-size:13.5px;
+}
+.expand-inner h4{
+  font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--c);margin-bottom:8px;
+}
+.expand-inner ul{list-style:none;color:var(--ink-dim);display:grid;gap:4px}
+.expand-inner ul li::before{content:"— ";color:var(--c)}
+.stockist{grid-column:1/-1;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+.stockist b{color:var(--ink)}
+@media(max-width:760px){
+  .row{grid-template-columns:72px 1fr;gap:14px;padding:16px}
+  .row .thumb{height:72px}.row .thumb img{max-height:72px}
+  .row .grade{display:none}
+  .expand-inner{grid-template-columns:1fr}
+}
+
+/* ================= FAQ ================= */
+#faq{position:relative;overflow:hidden}
+#faq::before{
+  content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:120vw;height:100%;
+  background:radial-gradient(800px 400px at 50% 12%, rgba(255,255,255,.05), transparent 65%);
+  pointer-events:none;
+}
+.faq-head{
+  font-family:'Anton';text-transform:uppercase;line-height:.92;
+  font-size:clamp(3.2rem,12.5vw,11rem);
+  color:#fff;
+  text-shadow:
+    0 0 1px #fff,
+    0 0 26px rgba(255,255,255,.35),
+    0 0 90px rgba(255,255,255,.14);
+  margin-bottom:8px;
+}
+.faq-head small{
+  display:block;font-size:clamp(1rem,2.4vw,1.6rem);letter-spacing:.5em;
+  color:var(--ink-dim);text-shadow:none;margin-top:14px;font-family:'Space Grotesk';font-weight:600;
+}
+.faq-list{margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--line)}
+.q{border-bottom:1px solid var(--line)}
+.q button{
+  all:unset;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  width:100%;cursor:pointer;padding:26px 4px;
+  font-family:'Anton';font-size:clamp(1.15rem,2.6vw,1.9rem);
+  text-transform:uppercase;letter-spacing:.03em;color:var(--ink);
+  transition:color .15s, padding-left .2s cubic-bezier(.2,1.4,.4,1);
+}
+.q button:hover{color:var(--qc);padding-left:14px}
+.q .chev{
+  flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--line);display:grid;place-items:center;
+  font-family:'Space Grotesk';font-size:18px;font-weight:700;color:var(--ink-dim);
+  transition:transform .28s cubic-bezier(.3,1.6,.4,1), background .2s, color .2s;
+}
+.q.open .chev{transform:rotate(45deg);background:var(--qc);border-color:var(--qc);color:#08090b}
+.q .a{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s cubic-bezier(.3,1.3,.4,1);
+}
+.q .a p{
+  padding:0 4px 28px;max-width:72ch;
+  color:var(--ink-dim);font-size:15.5px;font-weight:500;
+}
+.q .a b{color:var(--qc)}
+.q.open .a{max-height:300px}
+.q.open button{color:var(--qc);text-shadow:0 0 22px color-mix(in srgb, var(--qc) 45%, transparent)}
+
+/* ================= FOOTER ================= */
+footer{
+  border-top:1px solid var(--line);
+  padding:50px clamp(16px,5vw,64px);
+  display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center;
+  color:var(--ink-dim);font-size:13px;
+}
+footer .wordmark{font-size:20px}
+footer a{color:var(--ink)}
+footer .nums{display:flex;gap:18px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="stage">
+  <div class="topbar">
+    <div class="wordmark anton">MOMBASA</div>
+    <nav>
+      <a href="#lineup">Lineup</a>
+      <a href="#faq">FAQ</a>
+      <a href="../">Classic site</a>
+      <a href="#stockists">Stockists</a>
+    </nav>
+  </div>
+
+  <div class="drop-tag">NYUMBA RANGE · <b>ALL COLOURWAYS LIVE</b> · KS EAS 18-1 CERTIFIED</div>
+  <h1 class="hero-title">THE CEMENT<br><span>PARADE</span></h1>
+
+  <div class="parade-wrap">
+    <div class="parade" id="parade"><div class="track" id="track"></div></div>
+  </div>
+  <div class="counter"></div>
+  <div class="scroll-hint">◂ drag the shelf · tap a bag ▸</div>
+</header>
+
+<main>
+  <section class="sectionpad" id="lineup">
+    <div class="sec-kick">01 — THE LINEUP</div>
+    <h2 class="sec-title">Every grade is a colourway</h2>
+    <div class="lineup" id="lineupList"></div>
+  </section>
+
+  <section class="sectionpad" id="faq">
+    <div class="sec-kick">02 — YOU HAD QUESTIONS</div>
+    <h2 class="faq-head">FREQUENTLY<br>ASKED<small>ANSWERED LOUD</small></h2>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+</main>
+
+<footer id="stockists">
+  <div>
+    <div class="wordmark anton">MOMBASA</div>
+    <div style="margin-top:6px">Stocked countrywide · construction retailers &amp; wholesale</div>
+  </div>
+  <div class="nums">
+    <a href="tel:+254722204848">+254 722 204848</a>
+    <a href="tel:+254727605899">+254 727 605899</a>
+    <a href="mailto:info@nyumba.com">info@nyumba.com</a>
+  </div>
+  <div>© 2026 Mombasa Cement Ltd · Strength in Diversity</div>
+</footer>
+
+<script>
+const LINEUP = [
+  {id:"silver", name:"KP-Silver", cw:"Ice Blue", c:"var(--ice)", grade:"32.5N", tilt:"-5deg", pill:"Daily Driver",
+   img:"../images/KP-Silver2.png",
+   blurb:"The all-purpose workhorse. Slabs, mortars, plaster, block-making — the one every fundi reaches for first.",
+   mix:["Portland cement clinker","Natural pozzolana","Gypsum","Limestone"],
+   uses:["Household construction","Suspended slabs, beams, staircases","Masonry mortar & plastering","Brick and block making"]},
+  {id:"gold", name:"KP-Gold", cw:"24K Amber", c:"var(--amber)", grade:"32.5R", tilt:"4deg", pill:"Fast Setter",
+   img:"../images/KP-Gold.png",
+   blurb:"Rapid strength while curing. Built for water-retaining structures and anyone who hates waiting.",
+   mix:["Portland cement clinker","Natural pozzolana","Gypsum","Limestone"],
+   uses:["Hydraulic & water-retaining structures","Foundations and domestic floors","Grout material","Slabs, beams and columns"]},
+  {id:"diamond", name:"KP-Diamond", cw:"Neon Rose", c:"var(--pink)", grade:"42.5N", tilt:"-3deg", pill:"High Rise",
+   img:"../images/KP-Diamond2.png",
+   blurb:"Pure Portland muscle. High-rises, silos, bridges, dams — when the structure has to show off.",
+   mix:["Portland cement clinker (PCC)","Gypsum"],
+   uses:["Reinforced concrete work","High-rise structures & silos","Road construction","Bridges, dams, reservoirs"]},
+  {id:"supergold", name:"KP-Super Gold", cw:"Blaze Orange", c:"var(--orange)", grade:"42.5N", tilt:"5deg", pill:"Mass Pour",
+   img:"../images/KP-Super-Gold.png",
+   blurb:"Premium pozzolana power for infrastructure and mass concreting. Low heat, big pours, no drama.",
+   mix:["Portland cement clinker (PCC)","Natural pozzolana","Gypsum","Limestone"],
+   uses:["Infrastructure projects","Mass concreting works","High-rise buildings","Road & bridge construction"]},
+  {id:"platinum", name:"KP-Platinum", cw:"Ultraviolet", c:"var(--violet)", grade:"52.5N", tilt:"-4deg", pill:"Top Shelf",
+   img:"../images/KP-Platinum_3_1.png",
+   blurb:"The strongest class in the cabinet. Rapid hardening, high early strength, heavy-duty everything.",
+   mix:["Portland cement clinker (PCC)","Gypsum"],
+   uses:["High early-strength civil works","Heavy-duty industrial floors","Overpasses & viaducts","Pre-stressed slabs and beams"]},
+  {id:"sapphire", name:"KP-Sapphire", cw:"Midnight Blue", c:"var(--blue)", grade:"42.5N", tilt:"3deg", pill:"Marine Spec",
+   img:"../images/KP-Saphire.png",
+   blurb:"Blast furnace cement that laughs at seawater. Sulphate resistance for ports, piers and coastal builds.",
+   mix:["Portland cement clinker (PCC)","Granulated blast furnace slag","Gypsum"],
+   uses:["Seawater-exposed projects","Piers, wharves, quays, ports","Dams and reservoirs","Wastewater treatment works"]},
+  {id:"quicklime", name:"Quick Lime", cw:"Acid Green", c:"var(--green)", grade:"KS EAS 73", tilt:"-5deg", pill:"Reactive",
+   img:"../images/Quick-Lime.png",
+   blurb:"Highly reactive calcium oxide. Dries waterlogged soil, neutralises acid, stabilises everything.",
+   mix:["High-reactivity calcium oxide","From selected limestone"],
+   uses:["Soil stabilisation","Water & wastewater treatment","Industrial pH control","Mining & steel processing"]},
+  {id:"hydlime", name:"Hydrated Lime", cw:"Fresh Teal", c:"var(--teal)", grade:"Class A", tilt:"4deg", pill:"Smooth Op",
+   img:"../images/Hydrated_Lime.png",
+   blurb:"Fine white lime that makes mortar buttery — better workability, water retention and finish.",
+   mix:["Hydrated calcium white lime","Class A, finely processed"],
+   uses:["Masonry mortar & plastering","Rendering and stucco","Whitewashing & limewash","Soil modification"]}
+];
+
+const FAQS = [
+  {c:"var(--ice)", q:"Which bag do I grab for a normal house?",
+   a:"<b>KP-Silver</b> is the daily driver — slabs, plaster, mortar, blocks. If you want faster setting and a bit more punch for floors and foundations, step up to <b>KP-Gold</b>."},
+  {c:"var(--pink)", q:"What do 32.5N, 42.5R and 52.5N actually mean?",
+   a:"The number is the strength class in MPa at 28 days — bigger number, stronger concrete. <b>N</b> means normal early strength, <b>R</b> means rapid early strength. 32.5 builds homes, 42.5 builds towers, <b>52.5 builds things that scare engineers from other towns</b>."},
+  {c:"var(--blue)", q:"Which one survives seawater?",
+   a:"<b>KP-Sapphire</b>. Blast furnace slag gives it superior sulphate resistance and very low heat of hydration — it was born for piers, ports, coastal bridges and anywhere the ocean keeps testing your concrete."},
+  {c:"var(--orange)", q:"Can I mix two types in one pour?",
+   a:"<b>No.</b> Every bag is engineered as a complete system. Mixing cements throws off setting time and final strength — pick one colourway per pour and use the correct raw-material proportions."},
+  {c:"var(--violet)", q:"What is actually inside the bag?",
+   a:"Depending on the type: <b>Portland cement clinker</b>, natural pozzolana, gypsum, limestone — and for KP-Sapphire, granulated blast furnace slag. Each product's exact blend is listed in the lineup above."},
+  {c:"var(--green)", q:"How do I store it so it stays fresh?",
+   a:"Keep bags <b>dry, off the ground and sealed</b> — cement's only enemy is moisture. Stack on pallets, away from walls, first in first out. A fresh bag flows like powder, not like regret."},
+  {c:"var(--amber)", q:"Where do I actually buy these?",
+   a:"<b>Countrywide</b> — construction material retailers and wholesalers across Kenya. For bulk and project supply, call +254 722 204848 or email <b>info@nyumba.com</b>."}
+];
+
+/* ---- parade ---- */
+const track = document.getElementById('track');
+track.innerHTML = LINEUP.map(p => `
+  <div class="can" style="--c:${p.c};--tilt:${p.tilt}" data-target="row-${p.id}">
+    <span class="pill">${p.pill}</span>
+    <div class="bagbox"><img src="${p.img}" alt="${p.name} bag" loading="eager"></div>
+    <div class="mirror"><img src="${p.img}" alt="" aria-hidden="true"></div>
+    <div class="meta">
+      <div class="cw">${p.cw}</div>
+      <div class="nm">${p.name}</div>
+      <div class="gr">${p.grade}</div>
+    </div>
+  </div>`).join('');
+
+/* ---- lineup rows ---- */
+const list = document.getElementById('lineupList');
+list.innerHTML = LINEUP.map(p => `
+  <article class="row" id="row-${p.id}" style="--c:${p.c}">
+    <div class="thumb"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+    <div class="info">
+      <div class="cw">'${p.cw}' colourway</div>
+      <h3>${p.name}</h3>
+      <p>${p.blurb}</p>
+    </div>
+    <div class="grade anton">${p.grade}</div>
+    <div class="expand"><div class="expand-inner">
+      <div><h4>Ingredients</h4><ul>${p.mix.map(m=>`<li>${m}</li>`).join('')}</ul></div>
+      <div><h4>Built for</h4><ul>${p.uses.map(u=>`<li>${u}</li>`).join('')}</ul></div>
+      <div class="stockist">Stockists — <b>available countrywide</b> at construction retailers &amp; wholesale · bulk orders +254 722 204848</div>
+    </div></div>
+  </article>`).join('');
+
+document.querySelectorAll('.row').forEach(r =>
+  r.addEventListener('click', () => r.classList.toggle('open')));
+
+document.querySelectorAll('.can').forEach(c =>
+  c.addEventListener('click', () => {
+    const row = document.getElementById(c.dataset.target);
+    document.querySelectorAll('.row').forEach(r=>r.classList.remove('open'));
+    row.classList.add('open');
+    row.scrollIntoView({behavior:'smooth', block:'center'});
+  }));
+
+/* ---- FAQ ---- */
+const faqList = document.getElementById('faqList');
+faqList.innerHTML = FAQS.map((f,i) => `
+  <div class="q" style="--qc:${f.c}">
+    <button aria-expanded="false">${f.q}<span class="chev">+</span></button>
+    <div class="a"><p>${f.a}</p></div>
+  </div>`).join('');
+
+faqList.querySelectorAll('.q').forEach(q => {
+  q.querySelector('button').addEventListener('click', () => {
+    const was = q.classList.contains('open');
+    faqList.querySelectorAll('.q').forEach(o=>{o.classList.remove('open');o.querySelector('button').setAttribute('aria-expanded','false');});
+    if(!was){ q.classList.add('open'); q.querySelector('button').setAttribute('aria-expanded','true'); }
+  });
+});
+</script>
+</body>
+</html>
